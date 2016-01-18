@@ -59,7 +59,7 @@
 <meta property="og:description" content="文章的摘要在此">
 <meta property="og:image" content="http://www.turingbook.com/Content/img/Turing.Gif">
 <meta property="og:image" content="http://www.ituring.com.cn/Content/img/Turing.Gif">
-<meta property="og:updated_time" content="2015-12-03T12:41:18.000Z">
+<meta property="og:updated_time" content="2015-12-18T07:07:39.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="my new post">
 <meta name="twitter:description" content="文章的摘要在此">
@@ -276,13 +276,13 @@
 
       
         <span itemprop="articleBody"><p>文章的摘要在此<a id="more"></a></p>
-<p>#测试1<br>单个回车<br>视为空格。</p>
+<h1 id="测试1">测试1</h1><p>单个回车<br>视为空格。</p>
 <p>连续回车</p>
 <p>才能分段。</p>
 <p>行尾加两个空格，这里-&gt;<br>即可段内换行。</p>
 <p><em>这些文字显示为斜体</em></p>
 <p><strong>这些文字显示为粗体</strong></p>
-<p>#测试2<br>行的开头空4个空格，表示程序代码，例如：</p>
+<h1 id="测试2">测试2</h1><p>行的开头空4个空格，表示程序代码，例如：</p>
 <p>C#:</p>
 <pre><code><span class="comment">//这里显示一些代码，在正文显示中会自动识别语言，进行代码染色，这是一段C#代码</span>
 <span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Blog</span>
@@ -311,14 +311,12 @@ print <span class="function"><span class="title">dict</span><span class="params"
 }
 
 document.write(fib(<span class="number">10</span>));
-</code></pre><p>#测试3</p>
-<blockquote>
+</code></pre><h1 id="测试3">测试3</h1><blockquote>
 <p>表示引用文字内容。</p>
 </blockquote>
 <h1 id="表示这是一级标题">表示这是一级标题</h1><h2 id="表示这是二级标题">表示这是二级标题</h2><h3 id="表示这是三级标题">表示这是三级标题</h3><h4 id="表示这是四级标题">表示这是四级标题</h4><h5 id="表示这是五级标题">表示这是五级标题</h5><h6 id="最小是六级标题">最小是六级标题</h6><p>也可以这样表示大标题<br>=</p>
 <p>这样表示小标题<br>-</p>
-<p>#测试3</p>
-<hr>
+<h1 id="测试3-1">测试3</h1><hr>
 <p>上面是一条分隔线</p>
 <ul>
 <li>这是无序列表项目</li>
@@ -341,13 +339,73 @@ document.write(fib(<span class="number">10</span>));
 </li>
 <li>外层列表项目</li>
 </ul>
-<p>#测试4</p>
-<p>直接把一个URL显示为超级连接：</p>
+<h1 id="测试4">测试4</h1><p>直接把一个URL显示为超级连接：</p>
 <p>也可以这样：<a href="http://www.ituring.com.cn" target="_blank" rel="external">图灵社区</a></p>
 <p>图像和链接非常类似，区别在开头加一个惊叹号： <img src="http://www.turingbook.com/Content/img/Turing.Gif" alt="这是一个Logo图像"></p>
 <p>此外，还可以以索引方式把url都列在文章的最后，例如这样：</p>
 <p><a href="http://www.ituring.com.cn" target="_blank" rel="external">图灵社区</a><br><img src="http://www.ituring.com.cn/Content/img/Turing.Gif" alt="图灵社区Logo"></p>
-</span>
+<p>iOS推送示例<br>    // 推送摄影师<br>    {<br>        “action” : {<br>            “type” : 1,<br>            “id” : “558d2a60e4b007770352c8cc”<br>        },<br>        “aps” :  {<br>            “alert” : “推送摄影师”<br>        } ,<br>        “sound”: “1”<br>    } </p>
+<pre><code>// 推送相册
+{ 
+    <span class="string">"action"</span> : { 
+        <span class="string">"type"</span> : <span class="number">2</span>,
+        <span class="string">"id"</span> : <span class="string">"565ede5e00b0bf3716568c60"</span>
+    },
+    <span class="string">"aps"</span> :  { 
+        <span class="string">"alert"</span> : <span class="string">"Hello？Bazinga！！！"</span>
+    } ,
+    <span class="string">"sound"</span>: <span class="string">"1"</span>
+} 
+
+// 推送集合
+{ 
+    <span class="string">"action"</span> : { 
+        <span class="string">"type"</span> : <span class="number">3</span>,
+        <span class="string">"id"</span> : <span class="string">"5673699300b0acaa4bef68d7"</span>
+    },
+    <span class="string">"aps"</span> :  { 
+        <span class="string">"alert"</span> : <span class="string">"没点故事怎么敢来玩摄影？"</span>
+    } ,
+    <span class="string">"sound"</span>: <span class="string">"1"</span>
+}
+
+// 推送评论 （<span class="keyword">for</span> test）
+{ 
+    <span class="string">"action"</span> : { 
+        <span class="string">"type"</span> : <span class="number">4</span>,
+    },
+    <span class="string">"aps"</span> :  { 
+        <span class="string">"alert"</span> : <span class="string">"推送评论"</span>
+    } ,
+    <span class="string">"sound"</span>: <span class="string">"1"</span>
+}
+
+
+// 推送Premium
+{ 
+    <span class="string">"action"</span> : { 
+        <span class="string">"type"</span> : <span class="number">5</span>,
+        <span class="string">"id"</span> : <span class="string">"56710afb60b294bccfdfbdc5"</span>
+    },
+    <span class="string">"aps"</span> :  { 
+        <span class="string">"alert"</span> : <span class="string">"这个装逼，我给满分！"</span>
+    } ,
+    <span class="string">"sound"</span>: <span class="string">"1"</span>
+} 
+
+
+// 推送URL
+{ 
+    <span class="string">"action"</span> : { 
+        <span class="string">"type"</span> : <span class="number">6</span>,
+        <span class="string">"id"</span> : <span class="string">"https://catch.avosapps.com/order/redirectActivity?activityName=20151124-bq”
+    },
+    "</span>aps<span class="string">" :  { 
+        "</span>alert<span class="string">" : “如何让面试官第一眼就看到你？"</span>
+    } ,
+    <span class="string">"sound"</span>: <span class="string">"1"</span>
+} 
+</code></pre></span>
       
     </div>
 
@@ -442,21 +500,21 @@ document.write(fib(<span class="number">10</span>));
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">2</span>
+              <span class="site-state-item-count">4</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
 
           <div class="site-state-item site-state-categories">
             
-              <span class="site-state-item-count">1</span>
+              <span class="site-state-item-count">2</span>
               <span class="site-state-item-name">分类</span>
               
           </div>
 
           <div class="site-state-item site-state-tags">
             
-              <span class="site-state-item-count">1</span>
+              <span class="site-state-item-count">5</span>
               <span class="site-state-item-name">标签</span>
               
           </div>
@@ -514,7 +572,7 @@ document.write(fib(<span class="number">10</span>));
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#表示这是一级标题"><span class="nav-number">1.</span> <span class="nav-text">表示这是一级标题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#表示这是二级标题"><span class="nav-number">1.1.</span> <span class="nav-text">表示这是二级标题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#表示这是三级标题"><span class="nav-number">1.1.1.</span> <span class="nav-text">表示这是三级标题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#表示这是四级标题"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">表示这是四级标题</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#表示这是五级标题"><span class="nav-number">1.1.1.1.1.</span> <span class="nav-text">表示这是五级标题</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#最小是六级标题"><span class="nav-number">1.1.1.1.1.1.</span> <span class="nav-text">最小是六级标题</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#测试1"><span class="nav-number">1.</span> <span class="nav-text">测试1</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#测试2"><span class="nav-number">2.</span> <span class="nav-text">测试2</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#测试3"><span class="nav-number">3.</span> <span class="nav-text">测试3</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#表示这是一级标题"><span class="nav-number">4.</span> <span class="nav-text">表示这是一级标题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#表示这是二级标题"><span class="nav-number">4.1.</span> <span class="nav-text">表示这是二级标题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#表示这是三级标题"><span class="nav-number">4.1.1.</span> <span class="nav-text">表示这是三级标题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#表示这是四级标题"><span class="nav-number">4.1.1.1.</span> <span class="nav-text">表示这是四级标题</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#表示这是五级标题"><span class="nav-number">4.1.1.1.1.</span> <span class="nav-text">表示这是五级标题</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#最小是六级标题"><span class="nav-number">4.1.1.1.1.1.</span> <span class="nav-text">最小是六级标题</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#测试3-1"><span class="nav-number">5.</span> <span class="nav-text">测试3</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#测试4"><span class="nav-number">6.</span> <span class="nav-text">测试4</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">
@@ -535,7 +593,7 @@ document.write(fib(<span class="number">10</span>));
         <div class="copyright" >
   
   &copy; 
-  <span itemprop="copyrightYear">2015</span>
+  <span itemprop="copyrightYear">2016</span>
   
   <span class="author" itemprop="copyrightHolder">GoCac</span>
 </div>
