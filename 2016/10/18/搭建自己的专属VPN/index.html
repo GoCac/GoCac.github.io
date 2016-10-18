@@ -1,0 +1,862 @@
+<!doctype html>
+<html class="theme-next   use-motion ">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=0.4.5.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="ShadowSocks,VPN,VPS," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.2" />
+
+
+
+
+
+
+<meta name="description" content="通过 Vultr + Ubuntu16.04 + ShadowSocks 的组合来搭建属于自己的VPN。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="搭建自己的专属VPN">
+<meta property="og:url" content="http://yoursite.com/2016/10/18/搭建自己的专属VPN/index.html">
+<meta property="og:site_name" content="GoCac's Blog">
+<meta property="og:description" content="通过 Vultr + Ubuntu16.04 + ShadowSocks 的组合来搭建属于自己的VPN。">
+<meta property="og:image" content="https://dn-qu3i5h38.qbox.me/e742d73c54de5d5c23c1.png">
+<meta property="og:image" content="https://dn-qu3i5h38.qbox.me/a1f6f3b932786985e582.png">
+<meta property="og:image" content="https://dn-qu3i5h38.qbox.me/128107b9811abf97ffa2.png">
+<meta property="og:image" content="https://dn-qu3i5h38.qbox.me/102feccc27e809333212.png">
+<meta property="og:image" content="https://dn-qu3i5h38.qbox.me/721407452b491774363b.png">
+<meta property="og:image" content="https://dn-qu3i5h38.qbox.me/6f35e16b318e3e897a89.png">
+<meta property="og:image" content="https://dn-qu3i5h38.qbox.me/ebe3d28d7f2ef7419312.png">
+<meta property="og:image" content="https://dn-qu3i5h38.qbox.me/758cd355d8fde7b51df4.png">
+<meta property="og:image" content="https://dn-qu3i5h38.qbox.me/8584051c470a78c8e856.png">
+<meta property="og:image" content="https://dn-qu3i5h38.qbox.me/773d448b3554a1715bca.png">
+<meta property="og:image" content="https://dn-qu3i5h38.qbox.me/aa0e63a9aee5f3c2f065.png">
+<meta property="og:image" content="https://dn-qu3i5h38.qbox.me/77da5a65808c794a1418.png">
+<meta property="og:image" content="https://dn-qu3i5h38.qbox.me/305f6e1aa8726e089f0d.png">
+<meta property="og:image" content="https://dn-qu3i5h38.qbox.me/2ae27167b96456cb508f.png">
+<meta property="og:updated_time" content="2016-10-18T10:43:55.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="搭建自己的专属VPN">
+<meta name="twitter:description" content="通过 Vultr + Ubuntu16.04 + ShadowSocks 的组合来搭建属于自己的VPN。">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var CONFIG = {
+    scheme: '',
+    sidebar: 'post',
+    motion: true
+  };
+</script>
+
+  <title> 搭建自己的专属VPN | GoCac's Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  <!--[if lte IE 8]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+  
+
+
+
+
+
+
+  <div class="container one-column page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">GoCac's Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">给我一片二向箔。</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu menu-left">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+      
+        <li class="menu-item menu-item-search">
+          <a href="#" class="st-search-show-outputs">
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install', 't6qtk_sN-fARj7HyJXci','2.0.0');
+</script>
+
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div id="content" class="content">
+          
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                搭建自己的专属VPN
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2016-10-18T18:34:24+08:00" content="2016-10-18">
+              2016-10-18
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp; 分类于
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/万物无非我造/" itemprop="url" rel="index">
+                    <span itemprop="name">万物无非我造</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/10/18/搭建自己的专属VPN/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/18/搭建自己的专属VPN/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        <span itemprop="articleBody"><blockquote>
+<p>通过 Vultr + Ubuntu16.04 + ShadowSocks 的组合来搭建属于自己的VPN。<br><a id="more"></a></p>
+</blockquote>
+<h1 id="0-整体流程">0.整体流程</h1><ol>
+<li>购买一个VPS，并设置好操作系统等。</li>
+<li>在VPS上搭建ShadowSocks服务器，设置好账密及接口。</li>
+<li>在自己的终端上安装ShadowSocks客户端，接下来就可以enjoy your life without GFW！</li>
+</ol>
+<h1 id="1-VPS">1.VPS</h1><h2 id="1-1什么是VPS">1.1什么是VPS</h2><p><a href="https://zh.wikipedia.org/wiki/虚拟专用服务器" target="_blank" rel="external">VPS</a>可以简单的理解为一台存在于墙外的服务器。<br>具体来说，首先VPS的提供商自己拥有一个服务器集群，这个集群的计算性能（CPU、内存、硬盘）对用户来说是无限大的，这个集群的物理实体可以搭建在洛杉矶，我们购买VPS的时候，提供商会根据我们选择的套餐来分配给我们相应的计算资源（如图1-1）。实际的体验中，用户和用户之间是相互隔离的，如同我们购买了一台属于自己的服务器，这也就是所谓的<a href="https://zh.wikipedia.org/wiki/虛擬化" target="_blank" rel="external">虚拟化</a>。</p>
+<div align="center"><br><img src="https://dn-qu3i5h38.qbox.me/e742d73c54de5d5c23c1.png" alt="Vultr的服务器套餐选择" title="Vultr的服务器套餐选择"><br>图1-1 Vultr的服务器套餐选择<br></div>
+
+<h2 id="1-2VPS配置（Vultr为例）">1.2VPS配置（Vultr为例）</h2><p>自己选购过程中接触过的比较出名的几个VPS（排名不分先后）：</p>
+<ul>
+<li><a href="https://bandwagonhost.com" target="_blank" rel="external">搬瓦工</a>，曾经以超高性价比闻名，3.99刀可以租一年，毕竟搭建VPN并不需要太多性能，只可惜由于IPv4地址耗尽，低价福利已不在存在，不过仍然有着支持Alipay的亮点。</li>
+<li><a href="https://www.vultr.com" target="_blank" rel="external">Vultr</a>，按小时计费，感觉性价比算比较高的，购买的洛杉矶机房，速度还比较满意，直连延迟在60ms~100ms，可以看油管高清视频。支持PayPal，付款也比较方便。</li>
+<li><a href="http://www.laozuo.org/linode" target="_blank" rel="external">Linode</a>，追求高性能，或者不差钱的土豪就不用犹豫选他没错，唯一的缺点是只能信用卡付款。</li>
+<li><a href="https://www.digitalocean.com" target="_blank" rel="external">DigitalOcean</a>，亮点是按小时计费，最初被推荐用这个，但是官网总打不开就放弃了，性价比Vultr差不多的样子。</li>
+</ul>
+<h3 id="1-2-1购买流程">1.2.1购买流程</h3><p>VPS的购买流程应该都是大同小异：注册账号、（填写邀请码等获取优惠、）、绑定购买方式、选择套餐、付款。下面以我购买Vultr为例走一遍流程。</p>
+<p>Vultr的注册是非常简单的，直接官网首页就有Sign Up，也不用填写什么复杂的资料，就是一个邮箱一个密码输入了就可以注册（如图1-2）。</p>
+<div align="center"><br><img src="https://dn-qu3i5h38.qbox.me/a1f6f3b932786985e582.png" alt="Vultr注册新用户" title="Vultr注册新用户"><br>图1-2 Vultr注册新用户<br></div>
+
+<p>新用户注册后就自动到充值页面，使用不同的充值方式可以获得不同金额的赠送，用信用卡送的比较多(双币卡，非国内人民币信用卡)，老用户充值可以看下面的截图（图1-3），左侧选择Biling，然后Add Funds，可选择不同的充值方式，常见的PayPal或者信用卡均可，最低充值5美元。</p>
+<div align="center"><br><img src="https://dn-qu3i5h38.qbox.me/128107b9811abf97ffa2.png" alt="Vultr充值" title="Vultr充值"><br>图1-3 Vultr充值<br></div>
+
+<p>接下来购买服务器套餐，点击左侧菜单的Servers，然后可以直接点击右侧+号，如下图1-4所示。</p>
+<div align="center"><br><img src="https://dn-qu3i5h38.qbox.me/102feccc27e809333212.png" alt="Vultr购买新服务器" title="Vultr购买新服务器"><br>图1-4 Vultr充值<br></div>
+
+<p>首先选择数据中心，我选择了洛杉矶。</p>
+<div align="center"><br><img src="https://dn-qu3i5h38.qbox.me/721407452b491774363b.png" alt="Vultr选择数据中心" title="Vultr选择数据中心"><br>图1-5 Vultr选择数据中心<br></div>
+
+<p>接下来是第二个选择项目是操作系统，Vultr支持自己上传ISO安装系统，这种方式在使用Windows时可以节省一笔费用。在这里我选择了Ubuntu16.04 X64。</p>
+<div align="center"><br><img src="https://dn-qu3i5h38.qbox.me/6f35e16b318e3e897a89.png" alt="Vultr选择操作系统" title="Vultr选择操作系统"><br>图1-6 Vultr选择操作系统<br></div>
+
+<p>套餐直接选择最便宜的一款，搭VPN并不需要多少性能，一个月1000G也完全够用。</p>
+<div align="center"><br><img src="https://dn-qu3i5h38.qbox.me/ebe3d28d7f2ef7419312.png" alt="Vultr选择服务器大小" title="Vultr选择操作系统"><br>图1-7 Vultr选择服务器大小<br></div>
+
+<p>然后根据自己的需要选择额外的一些特性：是否需要IPv6、是否需要内网IP、自动备份（付费）和DDoS保护（付费）。</p>
+<p>安装脚本（5.Startup）和SSH(6.SSH Keys)可以先不要关心，关于SSH后文会提到。</p>
+<p>根据自己心情起个名字。</p>
+<p>最后，Deploy Now！</p>
+<div align="center"><br><img src="https://dn-qu3i5h38.qbox.me/758cd355d8fde7b51df4.png" alt="Vultr其他设置" title="Vultr其他设置"><br>图1-8 Vultr其他设置<br></div>
+
+<p>这时候我们会看到后台产品的状态是installing，等待安装配置完成之后，你的注册邮箱也会收到一份邮件，告诉你配置和IP这些，我们就可以开始使用了。</p>
+<h3 id="1-2-2管理VPS">1.2.2管理VPS</h3><p>Vultr 提供了这样(图1-9)一个管理后台，可以进行一些基本维护如关机重启彻底删除之类，并提供了一个在线的Console（图中右边展开菜单的第二项View Console）可以进入服务器以命令行的方式进行管理（这个管理的意思，就像你打开一台电脑是一样的）。</p>
+<div align="center"><br><img src="https://dn-qu3i5h38.qbox.me/8584051c470a78c8e856.png" alt="Vultr管理界面" title="Vultr管理界面"><br>图1-9 Vultr管理界面<br></div>
+
+<p>不过这个在线的Console虽然方便但是非常极其很难用（可以自己打开试试），个人感觉比较好的方案还是在本地进行远程管理。下面详细介绍一下远程登录VPS的具体方案。</p>
+<p>首先梳理一下接下来要实现的整个流程：记录好远程管理需要的三个信息、在本地安装好具体环境、远程连接。</p>
+<h4 id="三个信息">三个信息</h4><p>那么开始第一步，记录一下自己服务器的三个信息：服务器IP地址、服务器用户名和密码。查看方式很简单，点击一下图1-9中的服务器（鼠标放上去会变成一个小手），进入Server Information界面（图1-10），直接打开的Overview界面下面分了三栏，    最左栏就是我们需要的三个信息，记录下来，密码是自动生成且不可修改，直接复制就好。这个界面先不要关闭，一会还会用到。</p>
+<div align="center"><br><img src="https://dn-qu3i5h38.qbox.me/773d448b3554a1715bca.png" alt="Vultr服务器详细信息" title="Vultr服务器详细信息"><br>图1-10 Vultr服务器详细信息<br></div>
+
+<h4 id="本地客户端">本地客户端</h4><p>接下来第二步的任务是在我们的电脑本地安装远程登录VPS的客户端，这里分情况讨论：</p>
+<ul>
+<li>Windows平台可以选择PuTTY，登录方式很简单，只要有上文提到的三个信息就可以顺利登录，具体可以Google一下，这里我找到了一份看起来比较友好的<a href="https://cnzhx.net/blog/putty-basic-usage/" target="_blank" rel="external">PuTTY教程</a>。</li>
+<li>Linux、Unix(包括 macOS)都有内置的命令行终端，且内建了OpenSSH指令，所以可以通过终端+SSH方式登录，不需要额外安装什么，下面会以macOS为例具体说明如何设置SSH Key。</li>
+</ul>
+<p>首先要说明的是SHH支持基于密钥的安全验证的，可以实现自动登录，不过这就是另外一个故事了，感兴趣以后再说，这篇文章只涉及简单利用SSH进行基于密码的安全验证。</p>
+<p>首先在终端里运行</p>
+<pre><code>ssh-keygen -t rsa -<span class="keyword">C</span>  <span class="string">'your email@domain.com'</span>
+//-t 指定密钥类型，默认即 rsa ，可以省略
+-<span class="keyword">C</span> 设置注释文字，比如你的邮箱
+</code></pre><p>一路回车，这一步是为了生成公钥。</p>
+<p>然后在终端运行</p>
+<pre><code>cat ~<span class="regexp">/.ssh/id</span>_rsa.pub
+</code></pre><p>会输出刚刚生成的公钥，将内容完整复制一下。然后打开Vultr的服务器管理界面，点击左侧栏的[Servers]，然后上方标签点击[SSH Keys]，进入图1-11，点击蓝色按钮[Add SSH Key]，按要求填写name后把刚刚复制的内容粘贴到大文本框里，点击下方确认按钮。</p>
+<div align="center"><br><img src="https://dn-qu3i5h38.qbox.me/aa0e63a9aee5f3c2f065.png" alt="Vultr SSH设置" title="Vultr SSH设置"><br>图1-11 Vultr SSH设置<br></div>
+
+<h4 id="远程登录">远程登录</h4><p>打开终端，输入</p>
+<pre><code>ssh root@<span class="number">12.12</span><span class="number">.12</span><span class="number">.12</span>
+<span class="comment">//这里用到前文的三个数据</span>
+<span class="comment">//假设用户名为：root</span>
+<span class="comment">//IP地址为   ：12.12.12.12</span>
+</code></pre><p>成功的话会要求输入密码，也就是上文说过的那个密码，复制或输入好密码（光标不会移动是正常的，所以推荐复制过来，直接输入容易出错），回车，一切顺利就会看到登陆成功的欢迎界面，这个界面与在Windows环境下用PuTTY登录成功显示的是一样的。</p>
+<div align="center"><br><img src="https://dn-qu3i5h38.qbox.me/77da5a65808c794a1418.png" alt="远程登录成功" title="远程登录成功"><br>图1-12 远程登录成功<br></div>
+
+<p>到此为止，我们顺利的远程登录到了VPS上，接下来，我们开始在VPS上搭建ShadowSocks服务器。</p>
+<h1 id="2-ShadowSocks_Server">2.ShadowSocks Server</h1><p>之前因为ShadowSocks没有合适的iOS客户端（可下载的Surge价格为99美金），所以我搭建了一个L2TP的VPN，效果不是很好，虽然连接速度没有问题，但是连接成功率较低，在某些网络环境下（比如学校的校园网、中国移动蜂窝网络）出现连接失败的情况；连接稳定性不够，经常出现掉线重连情况。后来有人开发了iOS的ShadowSocks客户端售价6.0人民币，就果断换用了ShadowSocks来进行翻墙。</p>
+<p>下面说一下在Ubuntu 16.04上安装ShadowSocks服务器的流程。</p>
+<pre><code>//这部分需要一些Linux命令行的基本知识。包括sudo、<span class="keyword">cd</span>、touch、<span class="keyword">vim</span>等命令。
+</code></pre><p>首先，安装pip，在终端输入</p>
+<pre><code>sudo apt-<span class="built_in">get</span> install <span class="keyword">python</span>-gevent <span class="keyword">python</span>-pip
+</code></pre><p>然后，安装ShadowSocks，在终端输入</p>
+<pre><code>sudo pip <span class="keyword">install</span> shadowsocks
+</code></pre><p>安装后需要对Shadowsocks进行配置，进入etc目录，新建shadowsocks.json文件，进入编辑</p>
+<pre><code>cd /etc
+touch shadowsocks<span class="class">.json</span>
+vim shadowsocks.json
+</code></pre><p>添加内容，只需要修改我用中文标注的地方，IP和密码不要删掉双引号,<br>另外vim的保存方式是，先按一下esc，然后直接输入英文冒号:，紧接着输入wq回车，就可以保存并退出。</p>
+<pre><code>{
+    "<span class="attribute">server</span>": <span class="value"><span class="string">"填写自己的服务器IP"</span></span>,
+    "<span class="attribute">server_port</span>": <span class="value">服务器端口号（推荐<span class="number">10000</span>~<span class="number">65536</span>）</span>,
+    "<span class="attribute">local_address</span>": <span class="value"><span class="string">"127.0.0.1"</span></span>,
+    "<span class="attribute">local_port</span>": <span class="value"><span class="number">1080</span></span>,
+    "<span class="attribute">password</span>": <span class="value"><span class="string">"设置一下密码"</span></span>,
+    "<span class="attribute">method</span>": <span class="value"><span class="string">"aes-256-cfb"</span></span>,
+    "<span class="attribute">fast_open</span>": <span class="value"><span class="literal">true</span></span>,
+    "<span class="attribute">workers</span>": <span class="value"><span class="number">1</span>
+</span>}
+</code></pre><p>运行ShadowSocks服务器</p>
+<pre><code>ssserver -c <span class="regexp">/etc/</span>shadowsocks.json
+</code></pre><p>设置开机启动，编辑/etc/rc.local</p>
+<pre><code>vim /etc/rc<span class="class">.local</span>    
+</code></pre><p>添加如下命令，注意在exit 0之前。</p>
+<pre><code>nohup ssserver -c <span class="regexp">/etc/</span>shadowsocks.json <span class="number">2</span>&gt;&amp;<span class="number">1</span> &gt;<span class="regexp">/dev/</span><span class="keyword">null</span> &amp;
+</code></pre><p>保存并退出，这样就完成了ShadowSocks服务器的配置，接下来设置好客户端，就可以飞啦。</p>
+<h1 id="3-安装_ShadowSocks_客户端">3.安装 ShadowSocks 客户端</h1><p>ShadowSocks客户端已经覆盖了各个平台，下载地址已经有人整理好了，在<a href="http://www.liubingyang.com/soft/all-shadowsocks-dl.html" target="_blank" rel="external">这里</a>。</p>
+<p>以mac版客户端为例，简单展示一下客户端的设置方式。<br>将App包拖到应用程序中，运行后会在顶部栏出现一个小飞机按钮，选择[服务器]-&gt;[服务器设置]来打开设置按钮，如图3-1。</p>
+<div align="center"><br><img src="https://dn-qu3i5h38.qbox.me/305f6e1aa8726e089f0d.png" alt="客户端设置" title="客户端设置"><br>图3-1 客户端设置<br></div>
+
+<p>在打开的窗口（图3-2）中，填写VPS的IP地址以及在shadowsocks.json中设置的端口和密码。</p>
+<div align="center"><br><img src="https://dn-qu3i5h38.qbox.me/2ae27167b96456cb508f.png" alt="填写服务器信息" title="填写服务器信息"><br>图3-2 填写服务器信息<br></div>
+
+<p>点击打开 Shadowsocks 就可以科学上网咯。</p>
+<h1 id="4-GFW?_F**k_off!">4.GFW? F**k off!</h1></span>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/ShadowSocks/" rel="tag">#ShadowSocks</a>
+          
+            <a href="/tags/VPN/" rel="tag">#VPN</a>
+          
+            <a href="/tags/VPS/" rel="tag">#VPS</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/01/20/XCode标识Deprecated/" rel="next" title="XCode标识Deprecated">
+                <i class="fa fa-chevron-left"></i> XCode标识Deprecated
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+        </div>
+
+        
+
+
+        
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/10/18/搭建自己的专属VPN/"
+           data-title="搭建自己的专属VPN" data-url="http://yoursite.com/2016/10/18/搭建自己的专属VPN/">
+      </div>
+    
+  </div>
+
+
+      </div>
+
+      
+        
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" src="https://avatars2.githubusercontent.com/u/8056323?v=3&s=460" alt="GoCac" itemprop="image"/>
+          <p class="site-author-name" itemprop="name">GoCac</p>
+        </div>
+        <p class="site-description motion-element" itemprop="description">给我一片二向箔。</p>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">6</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            
+              <span class="site-state-item-count">2</span>
+              <span class="site-state-item-name">分类</span>
+              
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            
+              <span class="site-state-item-count">8</span>
+              <span class="site-state-item-name">标签</span>
+              
+          </div>
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/GoCac" target="_blank">
+                  
+                    <i class="fa fa-github"></i> GitHub
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/u/3281946271" target="_blank">
+                  
+                    <i class="fa fa-weibo"></i> Weibo
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.zhihu.com/people/gong-you-hao" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> Zhihu
+                  
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator">
+            <i class="fa fa-angle-double-up"></i>
+          </div>
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#0-整体流程"><span class="nav-number">1.</span> <span class="nav-text">0.整体流程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1-VPS"><span class="nav-number">2.</span> <span class="nav-text">1.VPS</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1什么是VPS"><span class="nav-number">2.1.</span> <span class="nav-text">1.1什么是VPS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2VPS配置（Vultr为例）"><span class="nav-number">2.2.</span> <span class="nav-text">1.2VPS配置（Vultr为例）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-1购买流程"><span class="nav-number">2.2.1.</span> <span class="nav-text">1.2.1购买流程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-2管理VPS"><span class="nav-number">2.2.2.</span> <span class="nav-text">1.2.2管理VPS</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#三个信息"><span class="nav-number">2.2.2.1.</span> <span class="nav-text">三个信息</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#本地客户端"><span class="nav-number">2.2.2.2.</span> <span class="nav-text">本地客户端</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#远程登录"><span class="nav-number">2.2.2.3.</span> <span class="nav-text">远程登录</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-ShadowSocks_Server"><span class="nav-number">3.</span> <span class="nav-text">2.ShadowSocks Server</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-安装_ShadowSocks_客户端"><span class="nav-number">4.</span> <span class="nav-text">3.安装 ShadowSocks 客户端</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-GFW?_F**k_off!"><span class="nav-number">5.</span> <span class="nav-text">4.GFW? F**k off!</span></a></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator">
+            <i class="fa fa-angle-double-down"></i>
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+      
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  
+  <span class="author" itemprop="copyrightHolder">GoCac</span>
+</div>
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
+</div
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT
+  </a>
+</div>
+
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+
+  
+    
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"gocac"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+    
+     
+
+
+    
+  
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.5.2"></script>
+
+
+  <script type="text/javascript" src="/js/helpers.js?v=0.4.5.2"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+<script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+<script type="text/javascript" src="/js/motion.js?v=0.4.5.2" id="motion.global"></script>
+
+
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.5.2" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 1 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    motionMiddleWares.sidebar = function () {
+      var $tocContent = $('.post-toc-content');
+      if (CONFIG.sidebar === 'post') {
+        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+          displaySidebar();
+        }
+      }
+    };
+  });
+</script>
+
+
+
+  <script type="text/javascript" src="/js/bootstrap.js"></script>
+
+  
+  
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+  </script>
+
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for (i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+    });
+  </script>
+
+  
+    <script type="text/javascript" src="http://cdn.staticfile.org/mathjax/2.4.0/MathJax.js"></script>
+    <script type="text/javascript" src="http://cdn.staticfile.org/mathjax/2.4.0/config/TeX-AMS-MML_HTMLorMML.js"></script>
+  
+
+
+  
+  
+
+</body>
+</html>
