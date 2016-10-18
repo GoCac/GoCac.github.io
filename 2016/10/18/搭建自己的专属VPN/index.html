@@ -71,7 +71,7 @@
 <meta property="og:image" content="https://dn-qu3i5h38.qbox.me/77da5a65808c794a1418.png">
 <meta property="og:image" content="https://dn-qu3i5h38.qbox.me/305f6e1aa8726e089f0d.png">
 <meta property="og:image" content="https://dn-qu3i5h38.qbox.me/2ae27167b96456cb508f.png">
-<meta property="og:updated_time" content="2016-10-18T10:43:55.000Z">
+<meta property="og:updated_time" content="2016-10-18T10:48:24.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="搭建自己的专属VPN">
 <meta name="twitter:description" content="通过 Vultr + Ubuntu16.04 + ShadowSocks 的组合来搭建属于自己的VPN。">
@@ -313,7 +313,7 @@
 <div align="center"><br><img src="https://dn-qu3i5h38.qbox.me/128107b9811abf97ffa2.png" alt="Vultr充值" title="Vultr充值"><br>图1-3 Vultr充值<br></div>
 
 <p>接下来购买服务器套餐，点击左侧菜单的Servers，然后可以直接点击右侧+号，如下图1-4所示。</p>
-<div align="center"><br><img src="https://dn-qu3i5h38.qbox.me/102feccc27e809333212.png" alt="Vultr购买新服务器" title="Vultr购买新服务器"><br>图1-4 Vultr充值<br></div>
+<div align="center"><br><img src="https://dn-qu3i5h38.qbox.me/102feccc27e809333212.png" alt="Vultr购买新服务器" title="Vultr购买新服务器"><br>图1-4 Vultr购买新服务器<br></div>
 
 <p>首先选择数据中心，我选择了洛杉矶。</p>
 <div align="center"><br><img src="https://dn-qu3i5h38.qbox.me/721407452b491774363b.png" alt="Vultr选择数据中心" title="Vultr选择数据中心"><br>图1-5 Vultr选择数据中心<br></div>
@@ -346,9 +346,9 @@
 </ul>
 <p>首先要说明的是SHH支持基于密钥的安全验证的，可以实现自动登录，不过这就是另外一个故事了，感兴趣以后再说，这篇文章只涉及简单利用SSH进行基于密码的安全验证。</p>
 <p>首先在终端里运行</p>
-<pre><code>ssh-keygen -t rsa -<span class="keyword">C</span>  <span class="string">'your email@domain.com'</span>
-//-t 指定密钥类型，默认即 rsa ，可以省略
--<span class="keyword">C</span> 设置注释文字，比如你的邮箱
+<pre><code>ssh-keygen -t rsa -<span class="type">C</span>  <span class="symbol">'your</span> email<span class="annotation">@domain</span>.com'
+<span class="comment">//-t 指定密钥类型，默认即 rsa ，可以省略</span>
+<span class="comment">//-C 设置注释文字，比如你的邮箱</span>
 </code></pre><p>一路回车，这一步是为了生成公钥。</p>
 <p>然后在终端运行</p>
 <pre><code>cat ~<span class="regexp">/.ssh/id</span>_rsa.pub
