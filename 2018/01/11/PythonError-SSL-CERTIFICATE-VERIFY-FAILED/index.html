@@ -35,7 +35,7 @@
 <link href="/css/main.css?v=0.4.5.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="博客，文章," />
+  <meta name="keywords" content="Python,网络请求,踩坑," />
 
 
 
@@ -51,18 +51,16 @@
 
 
 
-<meta name="description" content="文章的摘要在此">
+<meta name="description" content="错误信息 ssl.SSLError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed (_ssl.c:749)">
 <meta property="og:type" content="article">
-<meta property="og:title" content="my new post">
-<meta property="og:url" content="http://yoursite.com/2015/12/03/my-new-post/index.html">
+<meta property="og:title" content="PythonError SSL:CERTIFICATE_VERIFY_FAILED">
+<meta property="og:url" content="http://yoursite.com/2018/01/11/PythonError-SSL-CERTIFICATE-VERIFY-FAILED/index.html">
 <meta property="og:site_name" content="GoCac's Blog">
-<meta property="og:description" content="文章的摘要在此">
-<meta property="og:image" content="http://www.turingbook.com/Content/img/Turing.Gif">
-<meta property="og:image" content="http://www.ituring.com.cn/Content/img/Turing.Gif">
-<meta property="og:updated_time" content="2015-12-18T07:07:39.000Z">
+<meta property="og:description" content="错误信息 ssl.SSLError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed (_ssl.c:749)">
+<meta property="og:updated_time" content="2018-01-11T12:12:34.639Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="my new post">
-<meta name="twitter:description" content="文章的摘要在此">
+<meta name="twitter:title" content="PythonError SSL:CERTIFICATE_VERIFY_FAILED">
+<meta name="twitter:description" content="错误信息 ssl.SSLError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed (_ssl.c:749)">
 
 
 
@@ -74,7 +72,7 @@
   };
 </script>
 
-  <title> my new post | GoCac's Blog </title>
+  <title> PythonError SSL:CERTIFICATE_VERIFY_FAILED | GoCac's Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -220,7 +218,7 @@
             
             
               
-                my new post
+                PythonError SSL:CERTIFICATE_VERIFY_FAILED
               
             
           </h1>
@@ -229,8 +227,8 @@
         <div class="post-meta">
           <span class="post-time">
             发表于
-            <time itemprop="dateCreated" datetime="2015-12-03T15:09:47+08:00" content="2015-12-03">
-              2015-12-03
+            <time itemprop="dateCreated" datetime="2018-01-11T19:16:05+08:00" content="2018-01-11">
+              2018-01-11
             </time>
           </span>
 
@@ -239,8 +237,8 @@
               &nbsp; | &nbsp; 分类于
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/测试/" itemprop="url" rel="index">
-                    <span itemprop="name">测试</span>
+                  <a href="/categories/万物无非我造/" itemprop="url" rel="index">
+                    <span itemprop="name">万物无非我造</span>
                   </a>
                 </span>
 
@@ -255,8 +253,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2015/12/03/my-new-post/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/12/03/my-new-post/" itemprop="commentsCount"></span>
+                <a href="/2018/01/11/PythonError-SSL-CERTIFICATE-VERIFY-FAILED/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2018/01/11/PythonError-SSL-CERTIFICATE-VERIFY-FAILED/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -275,137 +273,44 @@
       
 
       
-        <span itemprop="articleBody"><p>文章的摘要在此<a id="more"></a></p>
-<h1 id="测试1">测试1</h1><p>单个回车<br>视为空格。</p>
-<p>连续回车</p>
-<p>才能分段。</p>
-<p>行尾加两个空格，这里-&gt;<br>即可段内换行。</p>
-<p><em>这些文字显示为斜体</em></p>
-<p><strong>这些文字显示为粗体</strong></p>
-<h1 id="测试2">测试2</h1><p>行的开头空4个空格，表示程序代码，例如：</p>
-<p>C#:</p>
-<pre><code><span class="comment">//这里显示一些代码，在正文显示中会自动识别语言，进行代码染色，这是一段C#代码</span>
-<span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Blog</span>
-{
-     <span class="keyword">public</span> <span class="keyword">int</span> Id { <span class="keyword">get</span>; <span class="keyword">set</span>; }
-     <span class="keyword">public</span> <span class="keyword">string</span> Subject { <span class="keyword">get</span>; <span class="keyword">set</span>; }
-}
-</code></pre><p>Python:</p>
-<pre><code>keywords = [<span class="string">"dsaa"</span>,<span class="string">"Asd"</span>,<span class="string">"sadc"</span>,<span class="string">"Gdfd"</span>,<span class="string">"gdfdd"</span>,<span class="string">"gaf"</span>,<span class="string">"gabdddddd"</span>,<span class="string">"eg"</span>]
-print <span class="function"><span class="title">dict</span><span class="params">([(i[<span class="number">0</span>],list(i[<span class="number">1</span>])</span></span>) <span class="keyword">for</span> <span class="tag">i</span> <span class="keyword">in</span> <span class="function"><span class="title">groupby</span><span class="params">(sorted(keywords)</span></span>,lambda    x:x[<span class="number">0</span>].<span class="function"><span class="title">lower</span><span class="params">()</span></span>)])
-</code></pre><p>Javascript:</p>
-<pre><code><span class="comment">/**
- * nth element in the fibonacci series.
- * <span class="doctag">@param</span> n &gt;= 0
- * <span class="doctag">@return</span> the nth element, &gt;= 0.
- */</span>
-<span class="function"><span class="keyword">function</span> <span class="title">fib</span><span class="params">(n)</span> </span>{
-    <span class="keyword">var</span> a = <span class="number">1</span>, b = <span class="number">1</span>;
-    <span class="keyword">var</span> tmp;
-    <span class="keyword">while</span> (--n &gt;= <span class="number">0</span>) {
-        tmp = a;
-        a += b;
-       b = tmp;
-    }
-    <span class="keyword">return</span> a;
-}
-
-document.write(fib(<span class="number">10</span>));
-</code></pre><h1 id="测试3">测试3</h1><blockquote>
-<p>表示引用文字内容。</p>
-</blockquote>
-<h1 id="表示这是一级标题">表示这是一级标题</h1><h2 id="表示这是二级标题">表示这是二级标题</h2><h3 id="表示这是三级标题">表示这是三级标题</h3><h4 id="表示这是四级标题">表示这是四级标题</h4><h5 id="表示这是五级标题">表示这是五级标题</h5><h6 id="最小是六级标题">最小是六级标题</h6><p>也可以这样表示大标题<br>=</p>
-<p>这样表示小标题<br>-</p>
-<h1 id="测试3-1">测试3</h1><hr>
-<p>上面是一条分隔线</p>
-<ul>
-<li>这是无序列表项目</li>
-<li>这是无序列表项目</li>
-<li>这是无序列表项目</li>
-</ul>
-<p>两个列表之间不能相邻，否则会解释为嵌套的列表</p>
-<ol>
-<li>这是有序列表项目</li>
-<li>这是有序列表项目</li>
-<li>这是有序列表项目</li>
+        <span itemprop="articleBody"><p>错误信息 ssl.SSLError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed (_ssl.c:749)<a id="more"></a></p>
+<h1 id="Why">Why</h1><ol>
+<li>Python 2.7.9 之后引入了一个新特性<br>当你 <code>urllib.urlopen</code> 一个 https 的时候会验证一次 SSL 证书，证书验证有问题就会抛出这个异常.</li>
+<li>macOS版本的 python 3.6 版本没有使用系统的 openssl 进行证书验证.</li>
 </ol>
-<p>下面这个是嵌套的列表</p>
-<ul>
-<li>外层列表项目<ul>
-<li>内层列表项目</li>
-<li>内层无序列表项目</li>
-<li>内层列表项目</li>
-</ul>
-</li>
-<li>外层列表项目</li>
-</ul>
-<h1 id="测试4">测试4</h1><p>直接把一个URL显示为超级连接：</p>
-<p>也可以这样：<a href="http://www.ituring.com.cn" target="_blank" rel="external">图灵社区</a></p>
-<p>图像和链接非常类似，区别在开头加一个惊叹号： <img src="http://www.turingbook.com/Content/img/Turing.Gif" alt="这是一个Logo图像"></p>
-<p>此外，还可以以索引方式把url都列在文章的最后，例如这样：</p>
-<p><a href="http://www.ituring.com.cn" target="_blank" rel="external">图灵社区</a><br><img src="http://www.ituring.com.cn/Content/img/Turing.Gif" alt="图灵社区Logo"></p>
-<p>iOS推送示例<br>    // 推送摄影师<br>    {<br>        “action” : {<br>            “type” : 1,<br>            “id” : “558d2a60e4b007770352c8cc”<br>        },<br>        “aps” :  {<br>            “alert” : “推送摄影师”<br>        } ,<br>        “sound”: “1”<br>    } </p>
-<pre><code>// 推送相册
-{ 
-    <span class="string">"action"</span> : { 
-        <span class="string">"type"</span> : <span class="number">2</span>,
-        <span class="string">"id"</span> : <span class="string">"565ede5e00b0bf3716568c60"</span>
-    },
-    <span class="string">"aps"</span> :  { 
-        <span class="string">"alert"</span> : <span class="string">"Hello？Bazinga！！！"</span>
-    } ,
-    <span class="string">"sound"</span>: <span class="string">"1"</span>
-} 
+<h1 id="How">How</h1><h2 id="禁用证书请求">禁用证书请求</h2><p><a href="https://www.python.org/dev/peps/pep-0476/" target="_blank" rel="external">PEP-0476文档</a>关于这个问题是提供了这样两个方案：</p>
+<p>将 <code>urlopen</code> 的参数 <code>context</code> 设置成 <code>ssl. _create_unverified_context</code>，以此禁掉单次链接的证书请求。</p>
+<blockquote>
+<p>For users who wish to opt out of certificate verification on a single connection, they can achieve this by providing the context argument to urllib.urlopen:</p>
+</blockquote>
+<pre><code><span class="keyword">import</span> ssl
 
-// 推送集合
-{ 
-    <span class="string">"action"</span> : { 
-        <span class="string">"type"</span> : <span class="number">3</span>,
-        <span class="string">"id"</span> : <span class="string">"5673699300b0acaa4bef68d7"</span>
-    },
-    <span class="string">"aps"</span> :  { 
-        <span class="string">"alert"</span> : <span class="string">"没点故事怎么敢来玩摄影？"</span>
-    } ,
-    <span class="string">"sound"</span>: <span class="string">"1"</span>
-}
+<span class="comment"># This restores the same behavior as before.</span>
+context = ssl._create_unverified_context()
+urllib.urlopen(<span class="string">"https://no-valid-cert"</span>, context=context)
+</code></pre><p>还有一种文档不推荐的方式，修改全局默认值来禁掉证书请求。</p>
+<blockquote>
+<p>It is also possible, <strong>though highly discouraged</strong>, to globally disable verification by monkeypatching the ssl module in versions of Python that implement this PEP:</p>
+</blockquote>
+<pre><code><span class="keyword">import</span> ssl
 
-// 推送评论 （<span class="keyword">for</span> test）
-{ 
-    <span class="string">"action"</span> : { 
-        <span class="string">"type"</span> : <span class="number">4</span>,
-    },
-    <span class="string">"aps"</span> :  { 
-        <span class="string">"alert"</span> : <span class="string">"推送评论"</span>
-    } ,
-    <span class="string">"sound"</span>: <span class="string">"1"</span>
-}
-
-
-// 推送Premium
-{ 
-    <span class="string">"action"</span> : { 
-        <span class="string">"type"</span> : <span class="number">5</span>,
-        <span class="string">"id"</span> : <span class="string">"56710afb60b294bccfdfbdc5"</span>
-    },
-    <span class="string">"aps"</span> :  { 
-        <span class="string">"alert"</span> : <span class="string">"这个装逼，我给满分！"</span>
-    } ,
-    <span class="string">"sound"</span>: <span class="string">"1"</span>
-} 
-
-
-// 推送URL
-{ 
-    <span class="string">"action"</span> : { 
-        <span class="string">"type"</span> : <span class="number">6</span>,
-        <span class="string">"id"</span> : <span class="string">"https://catch.avosapps.com/order/redirectActivity?activityName=20151124-bq”
-    },
-    "</span>aps<span class="string">" :  { 
-        "</span>alert<span class="string">" : “如何让面试官第一眼就看到你？"</span>
-    } ,
-    <span class="string">"sound"</span>: <span class="string">"1"</span>
-} 
-</code></pre></span>
+<span class="keyword">try</span>:
+    _create_unverified_https_context = ssl._create_unverified_context
+<span class="keyword">except</span> AttributeError:
+    <span class="comment"># Legacy Python that doesn't verify HTTPS certificates by default</span>
+    <span class="keyword">pass</span>
+<span class="keyword">else</span>:
+    <span class="comment"># Handle target environment that doesn't support HTTPS verification</span>
+    ssl._create_default_https_context = _create_unverified_https_context
+</code></pre><h2 id="macOS">macOS</h2><p>在/Applications/Python\ 3.6/目录下可以找到Readme.rtf文件有说明：</p>
+<blockquote>
+<p><strong>Certificate verification and OpenSSL</strong></p>
+<p><strong>*</strong>NEW<strong>*</strong> This variant of Python 3.6 now includes its own private copy of OpenSSL 1.0.2.  Unlike previous releases, the deprecated Apple-supplied OpenSSL libraries are no longer used.  This also means that the trust certificates in system and user keychains managed by the Keychain Access application and the security command line utility are no longer used as defaults by the Python ssl module.  For 3.6.0, a sample command script is included in /Applications/Python 3.6 to install a curated bundle of default root certificates from the third-party certifi package (<a href="https://pypi.python.org/pypi/certifi" target="_blank" rel="external">https://pypi.python.org/pypi/certifi</a>).  If you choose to use certifi, you should consider subscribing to the project’s email update service to be notified when the certificate bundle is updated.</p>
+<p>The bundled pip included with the Python 3.6 installer has its own default certificate store for verifying download connections.</p>
+</blockquote>
+<p>解决方法是该目录下有 Install Certificates.command 文件，运行即可（运行 <code>/Applications/Python\ 3.6/Install\ Certificates.command</code> 命令作用相同）。 </p>
+<h1 id="More">More</h1><p>在解决问题的过程中另外发现了 <code>request</code> 的 <code>put</code> 和 <code>post</code> 方法中提供了 <code>verify</code> 参数，将其设为 <code>False</code> 可以取消认证。</p>
+</span>
       
     </div>
 
@@ -413,7 +318,11 @@ document.write(fib(<span class="number">10</span>));
       
         <div class="post-tags">
           
-            <a href="/tags/博客，文章/" rel="tag">#博客，文章</a>
+            <a href="/tags/Python/" rel="tag">#Python</a>
+          
+            <a href="/tags/网络请求/" rel="tag">#网络请求</a>
+          
+            <a href="/tags/踩坑/" rel="tag">#踩坑</a>
           
         </div>
       
@@ -422,13 +331,13 @@ document.write(fib(<span class="number">10</span>));
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2016/10/18/搭建自己的专属VPN/" rel="next" title="搭建自己的专属VPN">
+                <i class="fa fa-chevron-left"></i> 搭建自己的专属VPN
+              </a>
+            
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2015/12/29/NSAssert断言/" rel="prev" title="NSAssert断言">
-                NSAssert断言 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -455,8 +364,8 @@ document.write(fib(<span class="number">10</span>));
         
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2015/12/03/my-new-post/"
-           data-title="my new post" data-url="http://yoursite.com/2015/12/03/my-new-post/">
+      <div class="ds-thread" data-thread-key="2018/01/11/PythonError-SSL-CERTIFICATE-VERIFY-FAILED/"
+           data-title="PythonError SSL:CERTIFICATE_VERIFY_FAILED" data-url="http://yoursite.com/2018/01/11/PythonError-SSL-CERTIFICATE-VERIFY-FAILED/">
       </div>
     
   </div>
@@ -572,7 +481,7 @@ document.write(fib(<span class="number">10</span>));
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#测试1"><span class="nav-number">1.</span> <span class="nav-text">测试1</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#测试2"><span class="nav-number">2.</span> <span class="nav-text">测试2</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#测试3"><span class="nav-number">3.</span> <span class="nav-text">测试3</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#表示这是一级标题"><span class="nav-number">4.</span> <span class="nav-text">表示这是一级标题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#表示这是二级标题"><span class="nav-number">4.1.</span> <span class="nav-text">表示这是二级标题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#表示这是三级标题"><span class="nav-number">4.1.1.</span> <span class="nav-text">表示这是三级标题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#表示这是四级标题"><span class="nav-number">4.1.1.1.</span> <span class="nav-text">表示这是四级标题</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#表示这是五级标题"><span class="nav-number">4.1.1.1.1.</span> <span class="nav-text">表示这是五级标题</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#最小是六级标题"><span class="nav-number">4.1.1.1.1.1.</span> <span class="nav-text">最小是六级标题</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#测试3-1"><span class="nav-number">5.</span> <span class="nav-text">测试3</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#测试4"><span class="nav-number">6.</span> <span class="nav-text">测试4</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Why"><span class="nav-number">1.</span> <span class="nav-text">Why</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#How"><span class="nav-number">2.</span> <span class="nav-text">How</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#禁用证书请求"><span class="nav-number">2.1.</span> <span class="nav-text">禁用证书请求</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#macOS"><span class="nav-number">2.2.</span> <span class="nav-text">macOS</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#More"><span class="nav-number">3.</span> <span class="nav-text">More</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">
