@@ -57,7 +57,7 @@
 <meta property="og:url" content="http://yoursite.com/2018/01/11/PythonError-SSL-CERTIFICATE-VERIFY-FAILED/index.html">
 <meta property="og:site_name" content="GoCac's Blog">
 <meta property="og:description" content="错误信息 ssl.SSLError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed (_ssl.c:749)">
-<meta property="og:updated_time" content="2018-01-11T12:12:34.639Z">
+<meta property="og:updated_time" content="2018-01-11T12:35:57.078Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="PythonError SSL:CERTIFICATE_VERIFY_FAILED">
 <meta name="twitter:description" content="错误信息 ssl.SSLError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed (_ssl.c:749)">
@@ -131,6 +131,16 @@
               <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
             
             首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+            
+            分类
           </a>
         </li>
       
@@ -237,8 +247,8 @@
               &nbsp; | &nbsp; 分类于
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/万物无非我造/" itemprop="url" rel="index">
-                    <span itemprop="name">万物无非我造</span>
+                  <a href="/categories/踩坑向/" itemprop="url" rel="index">
+                    <span itemprop="name">踩坑向</span>
                   </a>
                 </span>
 
@@ -275,7 +285,7 @@
       
         <span itemprop="articleBody"><p>错误信息 ssl.SSLError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed (_ssl.c:749)<a id="more"></a></p>
 <h1 id="Why">Why</h1><ol>
-<li>Python 2.7.9 之后引入了一个新特性<br>当你 <code>urllib.urlopen</code> 一个 https 的时候会验证一次 SSL 证书，证书验证有问题就会抛出这个异常.</li>
+<li>Python 2.7.9 之后引入了一个新特性,当 <code>urllib.urlopen</code> 一个 https 的时候会验证一次 SSL 证书，证书验证有问题就会抛出这个异常.</li>
 <li>macOS版本的 python 3.6 版本没有使用系统的 openssl 进行证书验证.</li>
 </ol>
 <h1 id="How">How</h1><h2 id="禁用证书请求">禁用证书请求</h2><p><a href="https://www.python.org/dev/peps/pep-0476/" target="_blank" rel="external">PEP-0476文档</a>关于这个问题是提供了这样两个方案：</p>
@@ -415,10 +425,10 @@ urllib.urlopen(<span class="string">"https://no-valid-cert"</span>, context=cont
           </div>
 
           <div class="site-state-item site-state-categories">
-            
+            <a href="/categories">
               <span class="site-state-item-count">2</span>
               <span class="site-state-item-name">分类</span>
-              
+              </a>
           </div>
 
           <div class="site-state-item site-state-tags">
